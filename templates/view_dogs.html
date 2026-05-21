@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Dog Profiles</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Dog Training Tracker</h1>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <h2>Saved Dog Profiles</h2>
+
+            {% for dog in dogs %}
+
+                <div class="dog-card">
+
+                    <h3>{{ dog[1] }}</h3>
+
+                    <p><strong>Breed:</strong> {{ dog[2] }}</p>
+
+                    <p><strong>Age:</strong> {{ dog[3] }}</p>
+
+                </div>
+
+                <br>
+
+            {% endfor %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>

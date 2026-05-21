@@ -55,6 +55,20 @@ def add_dog():
         connection.close()
 
     return render_template('add_dog.html')
+@app.route('/view-dogs')
+def view_dogs():
+
+    connection = sqlite3.connect('database/dogtracker.db')
+
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM dogs')
+
+    dogs = cursor.fetchall()
+
+    connection.close()
+
+    return render_template('view_dogs.html', dogs=dogs)
 
 if __name__ == '__main__':
     init_db()
